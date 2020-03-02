@@ -1,5 +1,6 @@
 {
     "appService.preDeployTask": "publish-release",
     "appService.deploySubpath": "",
-    "appService.defaultWebAppToDeploy": "/subscriptions/aa90d536-74f1-46cd-818a-1bcbfe95bb16/resourceGroups/jamesethanduke/providers/Microsoft.Web/sites/jamesethanduke"
+    "appService.defaultWebAppToDeploy": "/subscriptions/aa90d536-74f1-46cd-818a-1bcbfe95bb16/resourceGroups/jamesethanduke/providers/Microsoft.Web/sites/jamesethanduke",
+    "git.showPushSuccessNotification": true
 }
