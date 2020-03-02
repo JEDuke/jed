@@ -33,3 +33,6 @@ obj/Debug/netcoreapp3.1/staticwebassets/jamesethanduke.StaticWebAssets.Manifest.
 obj/Debug/netcoreapp3.1/staticwebassets/jamesethanduke.StaticWebAssets.xml
 obj/Debug/netcoreapp3.1/jamesethanduke.csproj.FileListAbsolute.txt
 obj/Debug/netcoreapp3.1/jamesethanduke.Views.dll
+obj/Debug/netcoreapp2.2/jamesethanduke.AssemblyInfo.cs
+obj/Debug/netcoreapp2.2/jamesethanduke.AssemblyInfoInputs.cache
+obj/Debug/netcoreapp2.2/project.razor.json
