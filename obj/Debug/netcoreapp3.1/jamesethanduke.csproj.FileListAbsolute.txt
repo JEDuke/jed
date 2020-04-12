@@ -33,3 +33,4 @@
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/jamesethanduke.dll
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/jamesethanduke.pdb
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/jamesethanduke.csproj.CopyComplete
+/Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/Razor/Views/About/Notes.cshtml.g.cs
