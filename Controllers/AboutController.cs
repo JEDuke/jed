@@ -28,6 +28,11 @@ namespace jamesethanduke.Controllers
             return View();
         }
 
+        public IActionResult Notes()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
