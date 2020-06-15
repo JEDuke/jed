@@ -20536,6 +20536,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/ethanduke/Projects/jamesethanduke/Views/Privacy/Index.cshtml",
+      "TargetPath": "Views\\Privacy\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/ethanduke/Projects/jamesethanduke/Views/About/Index.cshtml",
       "TargetPath": "Views\\About\\Index.cshtml",
       "FileKind": "mvc"

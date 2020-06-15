@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,38 @@ namespace jamesethanduke
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+                services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthNSection =
+                        Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = googleAuthNSection["ClientId"];
+                    options.ClientSecret = googleAuthNSection["ClientSecret"];
+                });
+                
+        // services.AddAuthentication()
+        //     .AddMicrosoftAccount(microsoftOptions => { ... })
+        //     .AddGoogle(googleOptions => { ... })
+        //     .AddTwitter(twitterOptions => { ... })
+        //     .AddFacebook(facebookOptions => { ... });
+
+        // services.AddDbContext<ApplicationDbContext>(options =>
+        //     options.UseSqlServer(
+        //         Configuration.GetConnectionString("DefaultConnection")));
+        // services.AddDefaultIdentity<IdentityUser>(options =>
+        //     options.SignIn.RequireConfirmedAccount = true)
+        //         .AddEntityFrameworkStores<ApplicationDbContext>();
+
+                // services.AddAuthorization(options => options..AuthorizationPolicy))
+        //         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        // .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => Configuration.Bind("JwtSettings", options))
+        // .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => Configuration.Bind("CookieSettings", options));
+
+        //      services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        // .AddEntityFrameworkStores<ApplicationDbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +74,8 @@ namespace jamesethanduke
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseRouting();
 

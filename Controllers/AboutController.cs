@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using jamesethanduke.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace jamesethanduke.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         private readonly ILogger<AboutController> _logger;
