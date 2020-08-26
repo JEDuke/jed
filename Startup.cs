@@ -58,15 +58,19 @@ namespace jamesethanduke
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
-            app.UseAuthorization();
             app.UseRouting();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=About}/{action=Index}/{id?}");
+                    pattern: "{controller=About}/{action=Index}/{id?}"
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "error",
+                    pattern: "{controller=Error}/{action=500}/{message?}"
+                );
             });
         }
     }
