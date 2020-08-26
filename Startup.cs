@@ -35,18 +35,18 @@ namespace jamesethanduke
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
                 });
 
-            // services.AddAuthentication()
-            //     .AddMicrosoftAccount(options => 
-            //     {
-            //         IConfigurationSection msftAuthNSection = Configuration.GetSection("Authentication:Microsoft");
+            services.AddAuthentication()
+                .AddMicrosoftAccount(options => 
+                {
+                    IConfigurationSection msftAuthNSection = Configuration.GetSection("Authentication:Microsoft");
 
-            //         options.ClientId = msftAuthNSection["ClientId"];
-            //         options.ClientSecret = msftAuthNSection["ClientSecret"];
-            //     });
+                    options.ClientId = msftAuthNSection["ClientId"];
+                    options.ClientSecret = msftAuthNSection["ClientSecret"];
+                });
 
             services.AddAuthorization(options => options.AddPolicy("Default", options.DefaultPolicy));
 
-            //   services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
