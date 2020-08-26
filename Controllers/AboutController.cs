@@ -10,7 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace jamesethanduke.Controllers
 {
-    [Authorize]
+    // [Authorize]
+    
     public class AboutController : Controller
     {
         private readonly ILogger<AboutController> _logger;
