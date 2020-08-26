@@ -22,6 +22,7 @@ namespace jamesethanduke.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
     }

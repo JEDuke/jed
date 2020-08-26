@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,16 +27,32 @@ namespace jamesethanduke
         {
             services.AddControllersWithViews();
 
-                services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    IConfigurationSection googleAuthNSection =
-                        Configuration.GetSection("Authentication:Google");
+            services.AddAuthentication()
+            .AddGoogle(options =>
+            {
+                IConfigurationSection googleAuthNSection =
+                    Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = googleAuthNSection["ClientId"];
-                    options.ClientSecret = googleAuthNSection["ClientSecret"];
-                });
-                
+                options.ClientId = googleAuthNSection["ClientId"];
+                options.ClientSecret = googleAuthNSection["ClientSecret"];
+            });
+
+            // services.AddAuthentication()
+            // .AddMicrosoftAccount(options => 
+            // {
+            //     IConfigurationSection msftAuthNSection = 
+            //         Configuration.GetSection("Authentication:Microsoft");
+
+            //     options.ClientId = msftAuthNSection["ClientId"];
+            //     options.ClientSecret = msftAuthNSection["ClientSecret"];
+            // });
+
+                // services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+                // {
+                //     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                //     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                // });
+
         // services.AddAuthentication()
         //     .AddMicrosoftAccount(microsoftOptions => { ... })
         //     .AddGoogle(googleOptions => { ... })
@@ -75,11 +92,11 @@ namespace jamesethanduke
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
-            app.UseAuthorization();
+            // app.UseAuthorization();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -35,3 +35,6 @@
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/jamesethanduke.csproj.CopyComplete
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/Razor/Views/About/Notes.cshtml.g.cs
 /Users/ethanduke/Projects/jamesethanduke/obj/Debug/netcoreapp3.1/Razor/Views/Privacy/Index.cshtml.g.cs
+/Users/ethanduke/Projects/jamesethanduke/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll
+/Users/ethanduke/Projects/jamesethanduke/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
+/Users/ethanduke/Projects/jamesethanduke/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
