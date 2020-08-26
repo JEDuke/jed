@@ -28,52 +28,25 @@ namespace jamesethanduke
             services.AddControllersWithViews();
 
             services.AddAuthentication()
-            .AddGoogle(options =>
-            {
-                IConfigurationSection googleAuthNSection =
-                    Configuration.GetSection("Authentication:Google");
-
-                options.ClientId = googleAuthNSection["ClientId"];
-                options.ClientSecret = googleAuthNSection["ClientSecret"];
-            });
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
+                    options.ClientId = googleAuthNSection["ClientId"];
+                    options.ClientSecret = googleAuthNSection["ClientSecret"];
+                });
 
             // services.AddAuthentication()
-            // .AddMicrosoftAccount(options => 
-            // {
-            //     IConfigurationSection msftAuthNSection = 
-            //         Configuration.GetSection("Authentication:Microsoft");
+            //     .AddMicrosoftAccount(options => 
+            //     {
+            //         IConfigurationSection msftAuthNSection = Configuration.GetSection("Authentication:Microsoft");
 
-            //     options.ClientId = msftAuthNSection["ClientId"];
-            //     options.ClientSecret = msftAuthNSection["ClientSecret"];
-            // });
+            //         options.ClientId = msftAuthNSection["ClientId"];
+            //         options.ClientSecret = msftAuthNSection["ClientSecret"];
+            //     });
 
-                // services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
-                // {
-                //     microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
-                //     microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
-                // });
+            services.AddAuthorization(options => options.AddPolicy("Default", options.DefaultPolicy));
 
-        // services.AddAuthentication()
-        //     .AddMicrosoftAccount(microsoftOptions => { ... })
-        //     .AddGoogle(googleOptions => { ... })
-        //     .AddTwitter(twitterOptions => { ... })
-        //     .AddFacebook(facebookOptions => { ... });
-
-        // services.AddDbContext<ApplicationDbContext>(options =>
-        //     options.UseSqlServer(
-        //         Configuration.GetConnectionString("DefaultConnection")));
-        // services.AddDefaultIdentity<IdentityUser>(options =>
-        //     options.SignIn.RequireConfirmedAccount = true)
-        //         .AddEntityFrameworkStores<ApplicationDbContext>();
-
-                // services.AddAuthorization(options => options..AuthorizationPolicy))
-        //         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        // .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => Configuration.Bind("JwtSettings", options))
-        // .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => Configuration.Bind("CookieSettings", options));
-
-        //      services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        // .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            //   services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,14 +62,13 @@ namespace jamesethanduke
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
-            // app.UseAuthorization();
-
+            app.UseAuthorization();
             app.UseRouting();
-
-            // app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
