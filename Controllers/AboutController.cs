@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using jamesethanduke.Models;
+using System.IO;
 
 namespace jamesethanduke.Controllers
 {
@@ -20,6 +21,8 @@ namespace jamesethanduke.Controllers
 
         public IActionResult Index()
         {
+            var path = "wwwroot/images/";
+            ViewBag.homepageImageCount = Directory.GetFiles(path, "homepage*.jpeg", SearchOption.AllDirectories).Length;
             return View();
         }
 
