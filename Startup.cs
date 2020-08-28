@@ -21,24 +21,32 @@ namespace jamesethanduke
         {
             services.AddControllersWithViews();
 
-            services.AddAuthentication()
+            services.AddAuthentication(options =>
+                 {
+                    options.DefaultScheme = options.DefaultAuthenticateScheme;
+                    options.DefaultChallengeScheme = options.DefaultChallengeScheme;
+                    //options.DefaultAuthenticateScheme = options.DefaultAuthenticateScheme;
+                 })
                 .AddGoogle(options =>
                 {
                     IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
                     options.ClientId = googleAuthNSection["ClientId"];
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
-                });
-
-            services.AddAuthentication()
+                })
                 .AddMicrosoftAccount(options => 
                 {
                     IConfigurationSection msftAuthNSection = Configuration.GetSection("Authentication:Microsoft");
 
                     options.ClientId = msftAuthNSection["ClientId"];
                     options.ClientSecret = msftAuthNSection["ClientSecret"];
-                });
+                })
+                .AddCookie();
 
-            services.AddAuthorization(options => options.AddPolicy("Default", options.DefaultPolicy));
+            // services.AddAuthorization(options => 
+            //     { 
+            //         options.DefaultPolicy = options.DefaultPolicy;
+            //     }
+            // );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

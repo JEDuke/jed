@@ -10,8 +10,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace jamesethanduke.Controllers
 {
-    // [Authorize]
-    
+    //[Authorize]
+    //[AutoValidateAntiforgeryToken]
+    //[Authorize]
     public class AboutController : Controller
     {
         private readonly ILogger<AboutController> _logger;
