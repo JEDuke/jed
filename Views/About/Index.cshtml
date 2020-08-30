@@ -1,6 +1,28 @@
 ﻿@{
     ViewData["Title"] = "James Ethan Duke";
 }
-<div class="container mainBackground">
+<div id="divMainBackground" class="container mainBackground">
 
 </div>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $( document ).ready(function() {
+        var count = '@ViewBag.homepageImageCount';
+        // get a random number within range of number of files
+        var i = Math.floor(Math.random() * count) + 1;
+        // set the random starting backgound now
+        setBackgroundImage(i)
+
+        // start counter to roll the background every x ms
+        setInterval(() => {
+            i < count ? i++ : i=1;
+            setBackgroundImage(i);
+        }, 20000);
+    });
+
+    function setBackgroundImage(x){
+        var backgroundImageUrl = "/images/homepage" + x + ".jpeg";
+        $(document.getElementById("divMainBackground")).css("background-image", "url(" + backgroundImageUrl + ")");
+    }
+
+</script>
